@@ -10,8 +10,8 @@ Its converts plain text to morce code and vice versa and follows below rules for
 3. Seven spaces to differentiate the word  
 
 ## Installation
-To install the MorceCodeTranslator just clone the code and run below command 
-```pip install -e .```
+To install the MorceCodeTranslator just clone the code and run below command  
+```pip install -U morcecodetranslator .```
 
 ## Sample code
 ```
