@@ -20,7 +20,7 @@ To install the MorceCodeTranslator just run the command `pip install -U morcecod
 
 
 ## Sample code
-```
+```python
 from morcecodetranslator.morce import MorceCodeTranslator
 
 mct = MorceCodeTranslator()
@@ -28,7 +28,7 @@ print(mct.encript('MORCE CODE'))
 print(mct.decript('--   ---   .-.   -.-.   .       -.-.   ---   -..   .'))
 ```
 ### output
-```
+```python
 --   ---   .-.   -.-.   .       -.-.   ---   -..   .  
 MORCE CODE
 ```
