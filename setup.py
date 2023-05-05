@@ -1,19 +1,18 @@
 from setuptools import find_packages
 from setuptools import setup
 
-
 setup(
-    name='morcecodetranslator',
-    version='1.0.1',
+    name='morse-transcript',
+    version='0.0.2',
     license='MIT',
     author='Gughanathan M',
     author_email='gugu.ap900@gmail.com',
-    description='Convert text to Morce Code',
-    package_dir={'':'src'},
+    description='Convert text to Morse Code and vise-versa.',
+    package_dir={'': 'src'},
     packages=find_packages(where='src'),
-    url='https://github.com/gugupy/morcecodetranslator',
+    url='https://github.com/gugupy/morsecodetranslator',
     include_package_data=True,
-    keywords='Morce Code',
+    keywords=['MorseCode', 'Morse'],
     python_requires=">=3.6",
     classifiers=[
         "Programming Language :: Python :: 3",

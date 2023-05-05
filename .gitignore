@@ -1,0 +1,10 @@
+# Intellij Idea
+.idea
+
+# Python
+.env
+env
+venv
+.venv
+*.egg-info
+dist/

@@ -1,17 +1,18 @@
 import re
 
-__all__ = ['encript', 'decript']
+__all__ = 'MorseCodeTranslator'
 
-class MorceCodeTranslator:
-    '''
+
+class MorseCodeTranslator:
+    """
     Morce code translator convert text to morce code and vice versa.
-    Its follow below algorithm for the convertion as per the morce-code,
+    Its follow below algorithm for the conversion as per the morce-code,
         1. Single space for same char follows
         2. Three spaces for different char
         3. Seven spaces to differentiate the word
-    '''
+    """
     def __init__(self):
-        self.__MORCE_CODE = {
+        self.__MORSE_CODE = {
             'A': '.-',
             'B': '-...',
             'C': '-.-.',
@@ -50,19 +51,19 @@ class MorceCodeTranslator:
             '0': '-----'
         }
 
-    def encript(self, message) -> str:
-        '''
-        Encript text to morce code
+    def encrypt(self, message) -> str:
+        """
+        Encrypt text to morce code
 
         :param message: message for convert to morce code
         :return: morce code
-        '''
+        """
 
         morce_code = ''
         _pre_char = None
 
         for char in str(message).upper():
-            # Evaluating space to seperate the word
+            # Evaluating space to separate the word
             if char == ' ':
                 morce_code += '       '
                 # reset the previous char to None
@@ -77,20 +78,20 @@ class MorceCodeTranslator:
                     morce_code += ' '
                 else:
                     morce_code += '   '
-            morce_code += self.__MORCE_CODE.get(char)
+            morce_code += self.__MORSE_CODE.get(char)
             _pre_char = char
         return morce_code
 
-    def decript(self, morce_code) -> str:
-        '''
-        Decripting the morce code to text
+    def decrypt(self, morce_code) -> str:
+        """
+        Decrypting the morce code to text
 
         :param morce_code: morce code for convert to text
-        :return: Plain text of equalant morce code
-        '''
+        :return: Plain text of equivalent morce code
+        """
         message = ''
 
-        # Spliting the morce based more than 4 spaces
+        # Splitting the morce based more than 4 spaces
         # So its exactly split the words
         mc_li = re.split(r'\s\s\s\s+', morce_code)
         for mc in mc_li:
@@ -98,13 +99,13 @@ class MorceCodeTranslator:
                 continue
             codes = re.split(r'\s+', mc)
             for code in codes:
-                idx = list(self.__MORCE_CODE.values()).index(code)
-                message += list(self.__MORCE_CODE.keys())[idx]
+                idx = list(self.__MORSE_CODE.values()).index(code)
+                message += list(self.__MORSE_CODE.keys())[idx]
             message += ' '
         return message.removesuffix(' ')
 
 
-# if __name__ == '__main__':
-#     mct = MorceCodeTranslator()
-#     print(mct.encript('MORCE CODE'))
-#     print(mct.decript('--   ---   .-.   -.-.   .       -.-.   ---   -..   .'))
+if __name__ == '__main__':
+    mct = MorseCodeTranslator()
+    print(mct.encrypt('MORSE CODE'))
+    print(mct.decrypt('--   ---   .-.   ...   .       -.-.   ---   -..   .'))
