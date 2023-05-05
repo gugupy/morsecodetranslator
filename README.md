@@ -4,6 +4,8 @@
 
 [![codecov](https://codecov.io/gh/gugupy/morsecodetranslator/branch/master/graph/badge.svg?token=TG5AR36QNI)](https://codecov.io/gh/gugupy/morsecodetranslator)
 
+[//]: # (![graph]&#40;https://codecov.io/github/gugupy/morsecodetranslator/branch/master/graphs/sunburst.svg?token=TG5AR36QNI&#41;)
+
 Its converts plain text to morse code and vice versa and follows below rules for the conversion as per the morse-code algorithm,  
 1. Single space for same char repeats  
 2. Three spaces for different char  
@@ -55,4 +57,9 @@ morse encrypt --text 'MORSE CODE'
 morse decrypt --morse-text '--   ---   .-.   ...   .       -.-.   ---   -..   .'
 ```
 
+## Run Codecov
 
+```textmate
+pytest --cov=tests --cov-report term --cov-report xml:coverage.xml
+./codecov -t ${CODECOV_TOKEN}
+```
