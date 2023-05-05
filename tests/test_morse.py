@@ -2,18 +2,18 @@ import unittest
 
 from morsecodetranslator.morse import MorseCodeTranslator
 
-morce_code = '....   .- .-   ..       ....   .- .-   ..'
+morse_code = '....   .- .-   ..       ....   .- .-   ..'
 message = 'HAAI HAAI'
 mct = MorseCodeTranslator()
 
 
-class TestMorceCode(unittest.TestCase):
+class TestMorseCode(unittest.TestCase):
 
     def test_encrypt(self):
-        self.assertEqual(morce_code, mct.encrypt(message))
+        self.assertEqual(morse_code, mct.encrypt(message))
 
     def test_decrypt(self):
-        self.assertEqual(message, mct.decrypt(morce_code))
+        self.assertEqual(message, mct.decrypt(morse_code))
 
     def test_decrypt_leading_7space(self):
-        self.assertEqual(message, mct.decrypt(morce_code + '       '))
+        self.assertEqual(message, mct.decrypt(morse_code + '       '))
