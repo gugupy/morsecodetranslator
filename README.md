@@ -29,6 +29,30 @@ print(mct.decrypt('--   ---   .-.   ...   .       -.-.   ---   -..   .'))
 ```
 ### output
 ``` textmate
---   ---   .-.   -.-.   .       -.-.   ---   -..   .  
+--   ---   .-.   ...   .       -.-.   ---   -..   .  
 MORSE CODE
 ```
+
+## CLI for morse code
+
+### Usage
+```textmate
+usage: morse [-h] {encrypt,decrypt} ...
+
+Convert plain text to morse code and vise-versa.
+
+positional arguments:
+  {encrypt,decrypt}  sub-commands
+
+optional arguments:
+  -h, --help         show this help message and exit
+
+Morse Code Converter
+```
+
+``` bash
+morse encrypt --text 'MORSE CODE'
+morse decrypt --morse-text '--   ---   .-.   ...   .       -.-.   ---   -..   .'
+```
+
+

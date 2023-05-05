@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='morse-transcript',
-    version='0.0.2',
+    version='0.0.3',
     license='MIT',
     author='Gughanathan M',
     author_email='gugu.ap900@gmail.com',
@@ -17,5 +17,10 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent"
-    ]
+    ],
+    entry_points={
+        'console_scripts': [
+            'morse=cli.morse:main'
+        ]
+    },
 )
