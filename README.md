@@ -7,21 +7,24 @@
 [//]: # (![graph]&#40;https://codecov.io/github/gugupy/morsecodetranslator/branch/master/graphs/sunburst.svg?token=TG5AR36QNI&#41;)
 
 Its converts plain text to morse code and vice versa and follows below rules for the conversion as per the morse-code algorithm,  
+
 1. Single space for same char repeats  
 2. Three spaces for different char  
 3. Seven spaces to differentiate the word  
 
 ## Installation
 
-### Method 1:
+### Method 1
+
 To install the MorseCodeTranslator just run the command `pip install -U morse-transcript`
 
-### Method 2:
+### Method 2
+
 1. Clone the repository `git clone https://github.com/gugupy/morsecodetranslator.git`
 2. Run the command `pip install -e .`
 
-
 ## Sample code
+
 ```python
 from morsecodetranslator.morse import MorseCodeTranslator
 
@@ -29,7 +32,9 @@ mct = MorseCodeTranslator()
 print(mct.encrypt('MORSE CODE'))
 print(mct.decrypt('--   ---   .-.   ...   .       -.-.   ---   -..   .'))
 ```
+
 ### output
+
 ``` textmate
 --   ---   .-.   ...   .       -.-.   ---   -..   .  
 MORSE CODE
@@ -38,6 +43,7 @@ MORSE CODE
 ## CLI for morse code
 
 ### Usage
+
 ```textmate
 usage: morse [-h] {encrypt,decrypt} ...
 
