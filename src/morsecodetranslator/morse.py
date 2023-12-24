@@ -3,6 +3,11 @@ import re
 __all__ = "MorseCodeTranslator"
 
 
+SINGLE_SPACE = " "
+THREE_SPACE = "   "
+SEVEN_SPACE = "       "
+
+
 class MorseCodeTranslator:
     """
     Morse code translator convert text to morse code and vice versa.
@@ -65,8 +70,8 @@ class MorseCodeTranslator:
 
         for char in str(message).upper():
             # Evaluating space to separate the word
-            if char == " ":
-                morse_code += "       "
+            if char == SINGLE_SPACE:
+                morse_code += SEVEN_SPACE
                 # reset the previous char to None
                 # To avoid append space to the morse code
                 # on the next word cycle
@@ -76,9 +81,9 @@ class MorseCodeTranslator:
             # To add spaces based on the morse algorithm
             if _pre_char:
                 if str(_pre_char).__eq__(char):
-                    morse_code += " "
+                    morse_code += SINGLE_SPACE
                 else:
-                    morse_code += "   "
+                    morse_code += THREE_SPACE
 
             try:
                 morse_code += self.__MORSE_CODE.get(char)
@@ -113,8 +118,8 @@ class MorseCodeTranslator:
                     print(f'"{code}" is not a valid Morse Code! ')
                     exit(1)
 
-            message += " "
-        return message.removesuffix(" ")
+            message += SINGLE_SPACE
+        return message.removesuffix(SINGLE_SPACE)
 
 
 if __name__ == "__main__":
