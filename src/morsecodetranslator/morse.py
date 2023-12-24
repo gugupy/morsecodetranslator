@@ -1,6 +1,6 @@
 import re
 
-__all__ = 'MorseCodeTranslator'
+__all__ = "MorseCodeTranslator"
 
 
 class MorseCodeTranslator:
@@ -11,44 +11,45 @@ class MorseCodeTranslator:
         2. Three spaces for different char
         3. Seven spaces to differentiate the word
     """
+
     def __init__(self):
         self.__MORSE_CODE = {
-            'A': '.-',
-            'B': '-...',
-            'C': '-.-.',
-            'D': '-..',
-            'E': '.',
-            'F': '..-.',
-            'G': '--.',
-            'H': '....',
-            'I': '..',
-            'J': '.---',
-            'K': '-.-',
-            'L': '.-..',
-            'M': '--',
-            'N': '-.',
-            'O': '---',
-            'P': '.--.',
-            'Q': '--.-',
-            'R': '.-.',
-            'S': '...',
-            'T': '-',
-            'U': '..-',
-            'V': '...-',
-            'W': '.--',
-            'X': '-..-',
-            'Y': '-.--',
-            'Z': '--..',
-            '1': '.----',
-            '2': '..---',
-            '3': '...--',
-            '4': '....-',
-            '5': '.....',
-            '6': '-....',
-            '7': '--...',
-            '8': '---..',
-            '9': '----.',
-            '0': '-----'
+            "A": ".-",
+            "B": "-...",
+            "C": "-.-.",
+            "D": "-..",
+            "E": ".",
+            "F": "..-.",
+            "G": "--.",
+            "H": "....",
+            "I": "..",
+            "J": ".---",
+            "K": "-.-",
+            "L": ".-..",
+            "M": "--",
+            "N": "-.",
+            "O": "---",
+            "P": ".--.",
+            "Q": "--.-",
+            "R": ".-.",
+            "S": "...",
+            "T": "-",
+            "U": "..-",
+            "V": "...-",
+            "W": ".--",
+            "X": "-..-",
+            "Y": "-.--",
+            "Z": "--..",
+            "1": ".----",
+            "2": "..---",
+            "3": "...--",
+            "4": "....-",
+            "5": ".....",
+            "6": "-....",
+            "7": "--...",
+            "8": "---..",
+            "9": "----.",
+            "0": "-----",
         }
 
     def encrypt(self, message) -> str:
@@ -59,15 +60,15 @@ class MorseCodeTranslator:
         :return: morse code
         """
 
-        morse_code = ''
+        morse_code = ""
         _pre_char = None
 
         for char in str(message).upper():
             # Evaluating space to separate the word
-            if char == ' ':
-                morse_code += '       '
+            if char == " ":
+                morse_code += "       "
                 # reset the previous char to None
-                # To avoid append space to the morse code 
+                # To avoid append space to the morse code
                 # on the next word cycle
                 _pre_char = None
                 continue
@@ -75,9 +76,9 @@ class MorseCodeTranslator:
             # To add spaces based on the morse algorithm
             if _pre_char:
                 if str(_pre_char).__eq__(char):
-                    morse_code += ' '
+                    morse_code += " "
                 else:
-                    morse_code += '   '
+                    morse_code += "   "
 
             try:
                 morse_code += self.__MORSE_CODE.get(char)
@@ -95,17 +96,16 @@ class MorseCodeTranslator:
         :param morse_code: morse code for convert to text
         :return: Plain text of equivalent morse code
         """
-        message = ''
+        message = ""
 
         # Splitting the morse based more than 4 spaces
         # So its exactly split the words
-        mc_li = re.split(r'\s\s\s\s+', morse_code)
+        mc_li = re.split(r"\s\s\s\s+", morse_code)
         for mc in mc_li:
-            if mc == '':
+            if mc == "":
                 continue
-            codes = re.split(r'\s+', mc)
+            codes = re.split(r"\s+", mc)
             for code in codes:
-
                 try:
                     idx = list(self.__MORSE_CODE.values()).index(code)
                     message += list(self.__MORSE_CODE.keys())[idx]
@@ -113,11 +113,11 @@ class MorseCodeTranslator:
                     print(f'"{code}" is not a valid Morse Code! ')
                     exit(1)
 
-            message += ' '
-        return message.removesuffix(' ')
+            message += " "
+        return message.removesuffix(" ")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     mct = MorseCodeTranslator()
-    print(mct.encrypt('MORSE CODE'))
-    print(mct.decrypt('--   ---   .-.   ...   .       -.-.   ---   -..   .'))
+    print(mct.encrypt("MORSE CODE"))
+    print(mct.decrypt("--   ---   .-.   ...   .       -.-.   ---   -..   ."))
